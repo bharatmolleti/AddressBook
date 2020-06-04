@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.molleti.adressbook.model.Person
+import com.squareup.picasso.Picasso
 
 class RecyclerAdapter(private var personsList: ArrayList<Person>) :
     RecyclerView.Adapter<RecyclerAdapter.PersonListViewHolder>() {
@@ -25,7 +26,7 @@ class RecyclerAdapter(private var personsList: ArrayList<Person>) :
             userNameTextView.findViewById<TextView>(R.id.name).text = person.name
             userPhoneNoTextView.text = person.phoneNo
             userEmailIdTextView.text = person.emailId
-            //Picasso.get().load(person.avatar).into(userAvatarImageView);
+            Picasso.get().load(person.avatar).into(userAvatarImageView);
         }
     }
 
