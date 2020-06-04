@@ -7,10 +7,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.molleti.adressbook.model.Person
-import com.squareup.picasso.Picasso
 
-class RecyclerAdapter(private val personsList: List<Person>) :
+class RecyclerAdapter(private var personsList: ArrayList<Person>) :
     RecyclerView.Adapter<RecyclerAdapter.PersonListViewHolder>() {
+
+    fun addPeople(list: List<Person>) {
+        personsList.addAll(list)
+    }
 
     class PersonListViewHolder(personView: View) : RecyclerView.ViewHolder(personView) {
         private val userNameTextView = personView.findViewById<TextView>(R.id.name)
@@ -22,7 +25,7 @@ class RecyclerAdapter(private val personsList: List<Person>) :
             userNameTextView.findViewById<TextView>(R.id.name).text = person.name
             userPhoneNoTextView.text = person.phoneNo
             userEmailIdTextView.text = person.emailId
-            Picasso.get().load(person.avatar).into(userAvatarImageView);
+            //Picasso.get().load(person.avatar).into(userAvatarImageView);
         }
     }
 
